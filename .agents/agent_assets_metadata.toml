@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "i6s4cMWSSsO6QoPWFXVXy"
+uri = "file://artifacts/arc-finance/src/assets/pool-villa.png"
+type = "image"
+title = "Villa with pool golden hour"
+
+[[generated]]
+id = "sMA0WIIai1foanQ3NVF2i"
+uri = "file://artifacts/arc-finance/src/assets/pool-car.png"
+type = "image"
+title = "Black sports car on street"
+
+[[generated]]
+id = "Z-vnODQ0MG4SA67r0eh4x"
+uri = "file://artifacts/arc-finance/src/assets/pool-yacht.png"
+type = "image"
+title = "Superyacht on ocean sunset"
+
+[[generated]]
+id = "XrtxPAnXx5rICWWRnky-q"
+uri = "file://artifacts/arc-finance/src/assets/pool-watch.png"
+type = "image"
+title = "Rolex Submariner macro photography"
