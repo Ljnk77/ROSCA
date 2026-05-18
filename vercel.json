@@ -1,6 +1,7 @@
 {
-  "buildCommand": "pnpm --filter @workspace/arc-finance run build",
+  "buildCommand": "corepack enable && pnpm --filter @workspace/arc-finance run build",
   "outputDirectory": "artifacts/arc-finance/dist/public",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "framework": null
+  "installCommand": "corepack enable && pnpm install --frozen-lockfile",
+  "framework": null,
+  "nodeVersion": "20.x"
 }
