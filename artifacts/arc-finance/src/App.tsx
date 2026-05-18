@@ -23,9 +23,9 @@ function Home() {
         <Tabs defaultValue="invest" className="w-full">
           <div className="flex justify-center mb-8">
             <TabsList className="bg-muted/50 border border-border p-1">
-              <TabsTrigger value="invest" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Đầu Tư</TabsTrigger>
-              <TabsTrigger value="savings" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Tiết Kiệm</TabsTrigger>
-              <TabsTrigger value="loans" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Vay</TabsTrigger>
+              <TabsTrigger value="invest" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Invest</TabsTrigger>
+              <TabsTrigger value="savings" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Savings</TabsTrigger>
+              <TabsTrigger value="loans" className="px-8 py-2 text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all">Loans</TabsTrigger>
             </TabsList>
           </div>
 

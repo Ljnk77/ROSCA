@@ -36,7 +36,7 @@ export function Navbar() {
               </div>
             ) : (
               <Button onClick={() => setShowModal(true)} className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                Kết nối ví OKX
+                Connect OKX Wallet
               </Button>
             )}
           </div>
@@ -46,9 +46,9 @@ export function Navbar() {
       <Dialog open={showModal} onOpenChange={setShowModal}>
         <DialogContent className="sm:max-w-md border-primary/20 bg-card">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold">Kết nối ví Web3</DialogTitle>
+            <DialogTitle className="text-xl font-bold">Connect Web3 Wallet</DialogTitle>
             <DialogDescription className="text-muted-foreground">
-              Mở ứng dụng OKX để quét mã hoặc kết nối trực tiếp.
+              Open the OKX app to scan the QR code or connect directly.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center justify-center py-8 space-y-6">
@@ -64,7 +64,7 @@ export function Navbar() {
                 setShowModal(false);
               }}
             >
-              Chấp nhận kết nối
+              Approve Connection
             </Button>
           </div>
         </DialogContent>

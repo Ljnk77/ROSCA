@@ -30,7 +30,7 @@ export function SummaryStrip() {
           
           <div className="flex flex-col space-y-1 relative">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-8 bg-border hidden md:block"></div>
-            <span className="text-sm font-medium text-muted-foreground">Tổng Tài Sản</span>
+            <span className="text-sm font-medium text-muted-foreground">Total Portfolio</span>
             <div className="text-2xl font-bold text-foreground">
               <AnimatedNumber value={totalPortfolio} prefix="$" />
             </div>
@@ -38,7 +38,7 @@ export function SummaryStrip() {
 
           <div className="flex flex-col space-y-1 relative">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-8 bg-border hidden md:block"></div>
-            <span className="text-sm font-medium text-muted-foreground">Lãi Đã Nhận</span>
+            <span className="text-sm font-medium text-muted-foreground">Interest Earned</span>
             <div className="text-2xl font-bold text-primary">
               <AnimatedNumber value={totalEarned} prefix="+$" decimals={2} />
             </div>
@@ -46,14 +46,14 @@ export function SummaryStrip() {
 
           <div className="flex flex-col space-y-1 relative">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-8 bg-border hidden md:block"></div>
-            <span className="text-sm font-medium text-muted-foreground">Số Dư Ví (ARC)</span>
+            <span className="text-sm font-medium text-muted-foreground">Wallet Balance (ARC)</span>
             <div className="text-2xl font-bold text-foreground">
               <AnimatedNumber value={walletBalance} prefix="$" />
             </div>
           </div>
 
           <div className="flex flex-col space-y-1">
-            <span className="text-sm font-medium text-muted-foreground">APY Tháng Này</span>
+            <span className="text-sm font-medium text-muted-foreground">APY This Month</span>
             <div className="text-2xl font-bold text-accent">
               <AnimatedNumber value={apy} suffix="%" decimals={1} />
             </div>

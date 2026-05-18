@@ -59,11 +59,11 @@ export function SavingsTab() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex justify-between items-end">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Mục Tiêu Tiết Kiệm</h2>
-          <p className="text-muted-foreground mt-1">Quản lý các khoản tiết kiệm cá nhân của bạn.</p>
+          <h2 className="text-2xl font-bold tracking-tight">Savings Goals</h2>
+          <p className="text-muted-foreground mt-1">Manage your personal savings targets.</p>
         </div>
         <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-          Tạo mục tiêu mới
+          New Goal
         </Button>
       </div>
 
@@ -74,19 +74,19 @@ export function SavingsTab() {
           <CardContent className="p-6">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <h3 className="text-xl font-bold">Tiết kiệm $100,000</h3>
-                <p className="text-muted-foreground text-sm mt-1">Dự kiến hoàn thành: Thg 12, 2027</p>
+                <h3 className="text-xl font-bold">Save $100,000</h3>
+                <p className="text-muted-foreground text-sm mt-1">Est. completion: Dec 2027</p>
               </div>
               <ProgressRing progress={34} size={100} />
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-muted/30 rounded-lg p-4">
-                <p className="text-sm text-muted-foreground mb-1">Góp hàng tháng</p>
+                <p className="text-sm text-muted-foreground mb-1">Monthly contribution</p>
                 <p className="text-lg font-semibold">$2,000</p>
               </div>
               <div className="bg-muted/30 rounded-lg p-4">
-                <p className="text-sm text-muted-foreground mb-1">Lãi đã nhận</p>
+                <p className="text-sm text-muted-foreground mb-1">Interest earned</p>
                 <p className="text-lg font-semibold text-primary">+$1,240</p>
               </div>
             </div>
@@ -110,8 +110,8 @@ export function SavingsTab() {
             </div>
 
             <div className="flex gap-3">
-              <Button className="flex-1 bg-primary text-primary-foreground">Gửi tiền</Button>
-              <Button variant="outline" className="flex-1">Rút tiền</Button>
+              <Button className="flex-1 bg-primary text-primary-foreground">Deposit</Button>
+              <Button variant="outline" className="flex-1">Withdraw</Button>
             </div>
           </CardContent>
         </Card>
@@ -121,19 +121,19 @@ export function SavingsTab() {
           <CardContent className="p-6">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <h3 className="text-xl font-bold">Tiết kiệm $80,000</h3>
-                <p className="text-muted-foreground text-sm mt-1">Dự kiến hoàn thành: Thg 3, 2026</p>
+                <h3 className="text-xl font-bold">Save $80,000</h3>
+                <p className="text-muted-foreground text-sm mt-1">Est. completion: Mar 2026</p>
               </div>
               <ProgressRing progress={58} size={100} color="hsl(var(--accent))" />
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-muted/30 rounded-lg p-4">
-                <p className="text-sm text-muted-foreground mb-1">Góp hàng tháng</p>
+                <p className="text-sm text-muted-foreground mb-1">Monthly contribution</p>
                 <p className="text-lg font-semibold">$1,500</p>
               </div>
               <div className="bg-muted/30 rounded-lg p-4">
-                <p className="text-sm text-muted-foreground mb-1">Lãi đã nhận</p>
+                <p className="text-sm text-muted-foreground mb-1">Interest earned</p>
                 <p className="text-lg font-semibold text-accent">+$3,890</p>
               </div>
             </div>
@@ -157,8 +157,8 @@ export function SavingsTab() {
             </div>
 
             <div className="flex gap-3">
-              <Button className="flex-1 bg-primary text-primary-foreground">Gửi tiền</Button>
-              <Button variant="outline" className="flex-1">Rút tiền</Button>
+              <Button className="flex-1 bg-primary text-primary-foreground">Deposit</Button>
+              <Button variant="outline" className="flex-1">Withdraw</Button>
             </div>
           </CardContent>
         </Card>
