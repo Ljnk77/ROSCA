@@ -1,0 +1,11 @@
+function ProgressRing({
+  progress,
+  size = 120,
+  strokeWidth = 8,
+  color = "hsl(var(--primary))",
+}: {
+  progress: number;
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+}) {
