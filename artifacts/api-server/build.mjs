@@ -10,16 +10,26 @@ globalThis.require = createRequire(import.meta.url);
 
 const artifactDir = path.dirname(fileURLToPath(import.meta.url));
 
+const isVercel = process.argv.includes("--vercel");
+
 async function buildAll() {
   const distDir = path.resolve(artifactDir, "dist");
-  await rm(distDir, { recursive: true, force: true });
+  const entryPoint = isVercel
+    ? path.resolve(artifactDir, "src/vercel-entry.ts")
+    : path.resolve(artifactDir, "src/index.ts");
+
+  const outDir = isVercel
+    ? path.resolve(artifactDir, "api")
+    : distDir;
+
+  await rm(outDir, { recursive: true, force: true });
 
   await esbuild({
-    entryPoints: [path.resolve(artifactDir, "src/index.ts")],
+    entryPoints: [entryPoint],
     platform: "node",
     bundle: true,
     format: "esm",
-    outdir: distDir,
+    outdir: outDir,
     outExtension: { ".js": ".mjs" },
     logLevel: "info",
     // Some packages may not be bundleable, so we externalize them, we can add more here as needed.
