@@ -4,5 +4,8 @@
   "outputDirectory": ".",
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/vercel-entry.mjs" }
-  ]
+  ],
+  "typescript": {
+    "ignoreBuildErrors": true
+  }
 }

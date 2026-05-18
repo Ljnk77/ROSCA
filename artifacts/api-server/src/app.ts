@@ -1,9 +1,15 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
+import * as pinoHttpNs from "pino-http";
+import type { Options } from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+
+// pino-http uses CJS `export =` which isn't callable under moduleResolution:bundler.
+// Cast through unknown so TypeScript accepts it; esbuild handles the interop at runtime.
+type PinoHttpFactory = (opts?: Options) => pinoHttpNs.HttpLogger;
+const pinoHttp = pinoHttpNs as unknown as PinoHttpFactory;
 
 const app: Express = express();
 
