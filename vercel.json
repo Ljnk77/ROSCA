@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm --filter @workspace/arc-finance run build",
+  "outputDirectory": "artifacts/arc-finance/dist/public",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": null
+}
