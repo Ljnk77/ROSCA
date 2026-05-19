@@ -1,20 +1,9 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import * as pinoHttpNs from "pino-http";
-import type { Options } from "pino-http";
+import pinoHttp from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
 import router from "./routes";
 import { logger } from "./lib/logger";
-
-// pino-http is a CJS module; esbuild wraps its `module.exports` in `.default`.
-// We resolve the actual callable at runtime and give TypeScript a proper type.
-type PinoHttpFactory = (opts?: Options) => pinoHttpNs.HttpLogger;
-const _pinoHttpMod = pinoHttpNs as unknown as Record<string, unknown>;
-const pinoHttp = (
-  typeof _pinoHttpMod["default"] === "function"
-    ? _pinoHttpMod["default"]
-    : _pinoHttpMod
-) as unknown as PinoHttpFactory;
 
 const app: Express = express();
 
