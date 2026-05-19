@@ -28449,7 +28449,7 @@ var require_logger = __commonJS({
 // src/app.ts
 var import_express3 = __toESM(require_express2(), 1);
 var import_cors = __toESM(require_lib3(), 1);
-var import_pino_http = __toESM(require_logger(), 1);
+var pinoHttpNs = __toESM(require_logger(), 1);
 
 // src/routes/index.ts
 var import_express2 = __toESM(require_express2(), 1);
@@ -32370,9 +32370,11 @@ var logger = (0, import_pino.default)({
 });
 
 // src/app.ts
+var _pinoHttpMod = pinoHttpNs;
+var pinoHttp = typeof _pinoHttpMod["default"] === "function" ? _pinoHttpMod["default"] : _pinoHttpMod;
 var app = (0, import_express3.default)();
 app.use(
-  (0, import_pino_http.default)({
+  pinoHttp({
     logger,
     serializers: {
       req(req) {
