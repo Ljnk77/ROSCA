@@ -6,10 +6,15 @@ import type { IncomingMessage, ServerResponse } from "http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
-// pino-http uses CJS `export =` which isn't callable under moduleResolution:bundler.
-// Cast through unknown so TypeScript accepts it; esbuild handles the interop at runtime.
+// pino-http is a CJS module; esbuild wraps its `module.exports` in `.default`.
+// We resolve the actual callable at runtime and give TypeScript a proper type.
 type PinoHttpFactory = (opts?: Options) => pinoHttpNs.HttpLogger;
-const pinoHttp = pinoHttpNs as unknown as PinoHttpFactory;
+const _pinoHttpMod = pinoHttpNs as unknown as Record<string, unknown>;
+const pinoHttp = (
+  typeof _pinoHttpMod["default"] === "function"
+    ? _pinoHttpMod["default"]
+    : _pinoHttpMod
+) as unknown as PinoHttpFactory;
 
 const app: Express = express();
 
