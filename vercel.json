@@ -1,6 +1,9 @@
 {
   "buildCommand": "corepack enable && pnpm --filter @workspace/arc-finance run build",
-  "outputDirectory": "artifacts/arc-finance/dist/public",
+  "outputDirectory": "artifacts/arc-finance/dist",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
 }
