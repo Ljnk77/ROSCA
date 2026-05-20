@@ -10,26 +10,16 @@ globalThis.require = createRequire(import.meta.url);
 
 const artifactDir = path.dirname(fileURLToPath(import.meta.url));
 
-const isVercel = process.argv.includes("--vercel");
-
 async function buildAll() {
   const distDir = path.resolve(artifactDir, "dist");
-  const entryPoint = isVercel
-    ? path.resolve(artifactDir, "src/vercel-entry.ts")
-    : path.resolve(artifactDir, "src/index.ts");
-
-  const outDir = isVercel
-    ? path.resolve(artifactDir, "api")
-    : distDir;
-
-  await rm(outDir, { recursive: true, force: true });
+  await rm(distDir, { recursive: true, force: true });
 
   await esbuild({
-    entryPoints: [entryPoint],
+    entryPoints: [path.resolve(artifactDir, "src/index.ts")],
     platform: "node",
     bundle: true,
     format: "esm",
-    outdir: outDir,
+    outdir: distDir,
     outExtension: { ".js": ".mjs" },
     logLevel: "info",
     // Some packages may not be bundleable, so we externalize them, we can add more here as needed.
@@ -111,10 +101,11 @@ async function buildAll() {
       "puppeteer-core",
       "electron",
     ],
-    sourcemap: isVercel ? false : "linked",
-    plugins: isVercel
-      ? []
-      : [esbuildPluginPino({ transports: ["pino-pretty"] })],
+    sourcemap: "linked",
+    plugins: [
+      // pino relies on workers to handle logging, instead of externalizing it we use a plugin to handle it
+      esbuildPluginPino({ transports: ["pino-pretty"] })
+    ],
     // Make sure packages that are cjs only (e.g. express) but are bundled continue to work in our esm output file
     banner: {
       js: `import { createRequire as __bannerCrReq } from 'node:module';

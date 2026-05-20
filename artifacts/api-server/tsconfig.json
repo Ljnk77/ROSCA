@@ -3,10 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node"],
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmitOnError": false
+    "types": ["node"]
   },
   "include": ["src"],
   "references": [
