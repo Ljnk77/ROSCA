@@ -18,7 +18,7 @@ const WALLETS = [
         <rect x="18" y="18" width="8" height="8" fill="white" />
       </svg>
     ),
-    check: () => !!(window as any).okxwallet,
+    check: () => !!window.okxwallet,
   },
   {
     id: "metamask" as const,
@@ -29,7 +29,7 @@ const WALLETS = [
         <text x="4" y="24" fontSize="20">🦊</text>
       </svg>
     ),
-    check: () => !!(window as any).ethereum?.isMetaMask,
+    check: () => !!window.ethereum?.isMetaMask,
   },
   {
     id: "any" as const,
