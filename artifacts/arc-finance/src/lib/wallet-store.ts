@@ -6,24 +6,52 @@ export function useWalletStore() {
   const [balance, setBalance] = useState("0");
 
   useEffect(() => {
-    const saved = localStorage.getItem("arc-wallet");
-    if (saved) {
+    const restoreSession = async () => {
+      const saved = localStorage.getItem("arc-wallet");
+      if (!saved) return;
+
       try {
         const data = JSON.parse(saved);
-        setIsConnected(data.isConnected);
-        setAddress(data.address);
-        setBalance(data.balance);
+        if (!data?.address) {
+          localStorage.removeItem("arc-wallet");
+          return;
+        }
+
+        const provider = window.okxwallet ?? window.ethereum;
+        if (!provider) {
+          localStorage.removeItem("arc-wallet");
+          return;
+        }
+
+        const accounts = (await provider.request({
+          method: "eth_accounts",
+        })) as string[];
+
+        const stillConnected =
+          accounts &&
+          accounts.length > 0 &&
+          accounts[0].toLowerCase() === data.address.toLowerCase();
+
+        if (stillConnected) {
+          setIsConnected(true);
+          setAddress(accounts[0]);
+          setBalance(data.balance ?? "0");
+        } else {
+          localStorage.removeItem("arc-wallet");
+        }
       } catch {
         localStorage.removeItem("arc-wallet");
       }
-    }
+    };
 
-    const handleAccountsChanged = (accounts: unknown) => {
-      const list = accounts as string[];
-      if (!list || list.length === 0) {
+    restoreSession();
+
+    const handleAccountsChanged = (raw: unknown) => {
+      const accounts = raw as string[];
+      if (!accounts || accounts.length === 0) {
         disconnect();
       } else {
-        setAddress(list[0]);
+        setAddress(accounts[0]);
       }
     };
 
