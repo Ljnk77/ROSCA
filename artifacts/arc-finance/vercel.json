@@ -1,6 +1,6 @@
 {
   "installCommand": "cd ../.. && corepack enable && pnpm install --frozen-lockfile",
-  "buildCommand": "../../node_modules/.bin/vite build --config vite.config.ts",
+  "buildCommand": "cd ../.. && pnpm --filter @workspace/arc-finance run build",
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
