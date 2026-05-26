@@ -1,6 +1,6 @@
 {
   "installCommand": "cd ../.. && corepack enable && pnpm install --frozen-lockfile",
-  "buildCommand": "cd ../.. && pnpm --filter @workspace/arc-finance run build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
